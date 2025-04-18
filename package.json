@@ -1,0 +1,32 @@
+{
+  "name": "my-utils-kit",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": [
+    "utils",
+    "typescript",
+    "string",
+    "object",
+    "array"
+  ],
+  "type": "module",
+  "author": "Vinoth Madhavan",
+  "license": "MIT",
+  "description": "A lightweight and type-safe utility library for working with strings, objects, and arrays in TypeScript. Includes helpful methods for deep cloning, object transformations, safe access, query string handling, and more — designed for modern JavaScript/TypeScript projects",
+  "dependencies": {
+    "typescript": "^5.8.3"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vmadhavan2310/my-utils-lib.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Vmadhavan2310/my-utils-lib/issues"
+  },
+  "homepage": "https://github.com/Vmadhavan2310/my-utils-lib#readme"
+}
