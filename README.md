@@ -33,6 +33,62 @@ console.log(camelCase('hello world'));         // ➜ helloWorld
 console.log(deepCloneObj({ a: 1 }));           // ➜ { a: 1 }
 console.log(groupBy([{ type: 'fruit', name: 'apple' }], 'type'));
 ```
+## 🚀 Performance Utilities
+
+```ts
+// utils.ts (your npm package)
+import { debounce, throttle, OperationBatcher, memoize } from 'my-utils-kit';
+
+// ---------- 1. DEBOUNCE ----------
+function handleInput(event: Event) {
+  const input = (event.target as HTMLInputElement).value;
+  console.log('Debounced Input:', input);
+}
+
+const debouncedInput = debounce(handleInput, 300);
+
+document
+  .getElementById('searchInput')
+  ?.addEventListener('input', debouncedInput);
+
+// ---------- 2. THROTTLE ----------
+function onScroll() {
+  console.log('Throttled scroll triggered');
+}
+
+const throttledScroll = throttle(onScroll, 200);
+
+window.addEventListener('scroll', throttledScroll);
+
+// ---------- 3. BATCH ----------
+// Create an instance of the batcher
+const batcher = new OperationBatcher(200); // 200ms delay between flushes
+
+// Enqueue async or sync operations
+batcher.enqueueOperation(() => apiCall1());
+batcher.enqueueOperation(() => apiCall2());
+
+// Example function definitions (for demonstration)
+function apiCall1() {
+  console.log('API Call 1 triggered');
+}
+
+function apiCall2() {
+  console.log('API Call 2 triggered');
+}
+
+// ---------- 4. MEMOIZE ----------
+function expensiveCalc(n: number): number {
+  console.log('Computing...');
+  return n * n;
+}
+
+const memoizedCalc = memoize(expensiveCalc);
+
+console.log(memoizedCalc(5)); // Computes
+console.log(memoizedCalc(5)); // Cached
+
+```
 
 ---
 
