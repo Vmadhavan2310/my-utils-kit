@@ -196,8 +196,12 @@ console.log(memoizedCalc(5)); // Cached
 - `findDuplicates(arr)`
 - `uniqueObjects(arr, key)`
 
+### ✅ Function(Performance) Utilities
 
-
+- `debounce(fn,delay,immediate=false)`
+- `throttle(fn,delay,immediate=false)`
+- `memoize(expensiveCalc)`
+- `new OperationBatcher()`
 
 ---
 
@@ -209,6 +213,7 @@ my-utils-kit/
 │   ├── arrayUtils.ts
 │   ├── objectUtils.ts
 │   └── stringUtils.ts
+│   └── functionUtils.ts
 ├── dist/
 │   └── compiled JS files
 ├── index.ts
