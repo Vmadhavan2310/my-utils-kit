@@ -137,15 +137,15 @@ console.log(size); // e.g., "md"
   - Returns the current screen size label based on breakpoints.
   - If no custom breakpoints are provided, the following **default breakpoints** are used:
 
-| Label  | Min Width | Max Width  |
-|--------|-----------|------------|
-| `xs`   | 0px       | 480px      |
-| `sm`   | 481px     | 640px      |
-| `md`   | 641px     | 768px      |
-| `lg`   | 769px     | 1024px     |
-| `xl`   | 1025px    | 1280px     |
-| `2xl`  | 1281px    | 1536px     |
-| `3xl`  | 1537px    | ∞ (Infinity) |
+      | Label  | Min Width | Max Width  |
+      |--------|-----------|------------|
+      | `xs`   | 0px       | 480px      |
+      | `sm`   | 481px     | 640px      |
+      | `md`   | 641px     | 768px      |
+      | `lg`   | 769px     | 1024px     |
+      | `xl`   | 1025px    | 1280px     |
+      | `2xl`  | 1281px    | 1536px     |
+      | `3xl`  | 1537px    | ∞ (Infinity) |
 
 - **`watchScreenSize(callback, breakpoints?)`**
   - Watches screen size changes and triggers the callback function.
