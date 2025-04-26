@@ -1,6 +1,6 @@
 # 📦 my-utils-kit
 
-A lightweight utility toolkit built with TypeScript, offering a collection of **string**, **object**, and **array** helper methods for everyday JavaScript/TypeScript development.
+A lightweight utility toolkit built with TypeScript, offering a collection of **Performance**, **string**, **object**, and **array** helper methods for everyday JavaScript/TypeScript development.
 
 ---
 
@@ -36,7 +36,6 @@ console.log(groupBy([{ type: 'fruit', name: 'apple' }], 'type'));
 ## 🚀 Performance Utilities
 
 ```ts
-// utils.ts (your npm package)
 import { debounce, throttle, OperationBatcher, memoize } from 'my-utils-kit';
 
 // ---------- 1. DEBOUNCE ----------
@@ -88,11 +87,59 @@ const memoizedCalc = memoize(expensiveCalc);
 console.log(memoizedCalc(5)); // Computes
 console.log(memoizedCalc(5)); // Cached
 
+// ----------5. loadScriptOnUserEvent -------
+
+loadScriptOnUserEvent('https://example.com/analytics.js', {
+  events: ['click', 'keydown'],
+  timeout: 8000,
+});
+
+// ----------6. runCallbackOnUserEvent -------
+
+runCallbackOnUserEvent(() => {
+  callback()
+}, {
+  events: ['click', 'keydown'],
+  timeout: 7000,
+});
+
+// ----------7. observeElementOnIntersect -------
+
+observeElementOnIntersect('.track-on-view', { threshold: 0.4 }, (entry) => {
+  entry.target.classList.add('visible');
+  console.log('Intersected:', entry.target);
+});
+
+// ----------8. Current Screen Size -------
+
+import { getScreenSize } from 'my-utils-kit';
+const size = getScreenSize();
+console.log(size); // e.g., "md"
 ```
 
 ---
 
 ## 📚 API Overview
+
+### ✅ Function(Performance) Utilities
+
+- `debounce(fn,delay,immediate=false)`
+- `throttle(fn,delay,immediate=false)`
+- `memoize(expensiveCalc)`
+- `new OperationBatcher()`
+- `loadScriptOnUserEvent(src,options)`
+- `runCallbackOnUserEvent(callback,options)`
+- `observeElementOnIntersect(el,options, callback)`
+
+## 📱 Viewport Utilities (Screen Size Detection)
+
+- **`getScreenSize(breakpoints?)`**
+  - Returns the current screen size label based on breakpoints.
+  - If no custom breakpoints are provided, default breakpoints are used.
+
+- **`watchScreenSize(callback, breakpoints?)`**
+  - Watches screen size changes and triggers the callback function.
+  - Returns a function to stop watching.
 
 ### ✅ String Utilities
 
@@ -195,13 +242,6 @@ console.log(memoizedCalc(5)); // Cached
 - `everyNth(arr, n)`
 - `findDuplicates(arr)`
 - `uniqueObjects(arr, key)`
-
-### ✅ Function(Performance) Utilities
-
-- `debounce(fn,delay,immediate=false)`
-- `throttle(fn,delay,immediate=false)`
-- `memoize(expensiveCalc)`
-- `new OperationBatcher()`
 
 ---
 
